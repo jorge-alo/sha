@@ -1,0 +1,93 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Tarjetas de Métricas de Resumen */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.metricCard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.metricValue {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.metricValueAccent {
+  color: var(--color-accent);
+}
+
+.metricLabel {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Tabla de Auditoría */
+.tableContainer {
+  width: 100%;
+  overflow-x: auto; /* Permite scroll si la pantalla es muy chica */
+  background-color: var(--color-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.cryptoTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: monospace; /* Fuente de código para aspecto técnico */
+  font-size: 0.9rem;
+}
+
+.cryptoTable th {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: var(--color-text);
+  padding: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cryptoTable td {
+  padding: 1rem;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.statusFill {
+  color: #00ffcc;
+  font-weight: bold;
+}

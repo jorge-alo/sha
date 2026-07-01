@@ -1,0 +1,25 @@
+/* Variables de Diseño Oficiales de SHA */
+:root {
+  --color-bg: #0d0f12;         /* Fondo Principal (Gris oscuro profundo) */
+  --color-surface: #16191e;    /* Fondo Secundario (Para tarjetas y bloques) */
+  --color-accent: #00b4d8;     /* Color de Acento (Teal de confianza) */
+  --color-text: #e2e8f0;       /* Texto Principal (Blanco roto para lectura descansada) */
+  --color-text-muted: #8a99ad; /* Color gris para textos secundarios o descripciones */
+  --border-color: #242930;     /* Bordes sutiles para separar secciones */
+}
+
+/* Reseteo básico obligatorio */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  /* Usamos Inter como tipografía base del sistema */
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

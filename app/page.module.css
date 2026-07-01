@@ -1,17 +1,17 @@
+/* page.module.css (Home) */
 .container {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-/* 1. HERO SECTION */
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 6rem 2rem; /* Mucho aire arriba y abajo */
-  background: radial-gradient(circle at top, #16191e 0%, #0d0f12 70%); /* Un sutil brillo de fondo */
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at top, #16191e 0%, #0d0f12 70%);
 }
 
 .title {
@@ -37,7 +37,7 @@
 
 .primaryButton {
   background-color: var(--color-accent);
-  color: #0d0f12; /* Texto oscuro para que contraste con el Teal */
+  color: #0d0f12;
   padding: 0.8rem 2rem;
   border-radius: 6px;
   font-weight: 600;
@@ -50,7 +50,6 @@
   filter: brightness(1.1);
 }
 
-/* 2. FRANJA DE CONFIANZA */
 .trustBadge {
   background-color: var(--color-surface);
   border-top: 1px solid var(--border-color);
@@ -76,4 +75,58 @@
 .statItem p {
   color: var(--color-text-muted);
   font-size: 0.95rem;
+}
+
+/* ---- TABLET ---- */
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+  }
+}
+
+/* ---- MOBILE ---- */
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1.2rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .primaryButton {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem 1.5rem;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .trustBadge {
+    padding: 2rem 1.2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .statItem h3 {
+    font-size: 2rem;
+  }
 }

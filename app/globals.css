@@ -17,6 +17,7 @@
 
 html, body {
   height: 100%;
+   overflow-x: hidden; 
   background-color: var(--color-bg);
   color: var(--color-text);
   /* Usamos Inter como tipografía base del sistema */

@@ -1,5 +1,8 @@
+/* page.module.css (Resultados) */
 .container {
   max-width: 1000px;
+   width: 100%;
+  min-width: 0;  
   margin: 0 auto;
   padding: 5rem 2rem;
 }
@@ -22,7 +25,6 @@
   margin: 0 auto;
 }
 
-/* Tarjetas de Métricas de Resumen */
 .metricsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -56,10 +58,11 @@
   letter-spacing: 0.05em;
 }
 
-/* Tabla de Auditoría */
 .tableContainer {
   width: 100%;
-  overflow-x: auto; /* Permite scroll si la pantalla es muy chica */
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background-color: var(--color-surface);
   border: 1px solid var(--border-color);
   border-radius: 6px;
@@ -67,9 +70,10 @@
 
 .cryptoTable {
   width: 100%;
+  min-width: 600px; /* fuerza el scroll horizontal en vez de aplastar columnas */
   border-collapse: collapse;
   text-align: left;
-  font-family: monospace; /* Fuente de código para aspecto técnico */
+  font-family: monospace;
   font-size: 0.9rem;
 }
 
@@ -79,15 +83,65 @@
   padding: 1rem;
   font-weight: 600;
   border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
 }
 
 .cryptoTable td {
   padding: 1rem;
   color: var(--color-text-muted);
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  white-space: nowrap;
 }
 
 .statusFill {
   color: #00ffcc;
   font-weight: bold;
+}
+
+/* ---- TABLET ---- */
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ---- MOBILE ---- */
+@media (max-width: 480px) {
+  .container {
+    padding: 2.5rem 1.2rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .metricValue {
+    font-size: 1.5rem;
+  }
+
+  .metricCard {
+    padding: 1rem;
+  }
+
+  .cryptoTable {
+    font-size: 0.8rem;
+  }
+
+  .cryptoTable th,
+  .cryptoTable td {
+    padding: 0.75rem;
+  }
 }

@@ -1,10 +1,12 @@
+/* Navbar.module.css */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 2rem;
-  background-color: var(--color-surface); /* <-- Color de la guía */
-  border-bottom: 1px solid var(--border-color); /* <-- Borde de la guía */
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
 }
 
 .logo a {
@@ -29,5 +31,53 @@
 }
 
 .links a:hover {
-  color: var(--color-accent); /* <-- Resalta con el Teal al pasar el mouse */
+  color: var(--color-accent);
+}
+
+/* Botón hamburguesa: oculto en desktop */
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 20;
+}
+
+.bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+/* ---- MOBILE ---- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .linksOpen {
+    display: flex;
+  }
 }

@@ -1,11 +1,14 @@
+/* Footer.module.css */
 .footer {
   display: flex;
-  justify-content: space-between; /* Separa el texto de los links */
+  justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
   background-color: var(--color-surface);
   border-top: 1px solid var(--border-color);
-  margin-top: auto; 
+  margin-top: auto;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .copyright p {
@@ -26,5 +29,13 @@
 }
 
 .legalLinks a:hover {
-  color: var(--color-accent); /* Brilla en Teal al pasar el mouse */
+  color: var(--color-accent);
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1.2rem;
+  }
 }

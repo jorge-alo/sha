@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar"; // ¡Acá usamos el alias @/* que configuraste!
 import Footer from "@/components/layout/Footer";
+import { Providers } from "./providers";
 
 export const metadata = {
   title: {
@@ -13,7 +14,7 @@ export const metadata = {
   authors: [{ name: "SHA Team" }],
   creator: "SHA Team",
   metadataBase: new URL("https://tu-dominio-final.com"), // Después lo cambiamos por tu URL real al subirlo
-  
+
   // Configuración para que se vea Pro al compartir el link en redes o WhatsApp (Open Graph)
   openGraph: {
     title: "SHA | Plataforma de Gestión Operativa",
@@ -30,7 +31,7 @@ export const metadata = {
     title: "SHA | Plataforma de Gestión Operativa",
     description: "Optimizá tus procesos y automatizá integraciones.",
   },
-  
+
   // Control de indexación para los robots de Google
   robots: {
     index: true,
@@ -51,10 +52,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body style={ {display: 'flex', flexDirection: 'column', minHeight: '100vh', margin: '0'}}>
-        <Navbar />
-        {children}
-        <Footer/>
+      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', margin: '0' }}>
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

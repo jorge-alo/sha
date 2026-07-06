@@ -1,41 +1,47 @@
+// app/contacto/page.tsx
 "use client";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
 import { InputField } from "@/components/ui/InputField";
 import { TextAreaField } from "@/components/ui/TextAreaField";
 import styles from "./page.module.css";
+import { ContactoFormData, contactoSchema } from "@/lib/schemas/contact";
 
-// 1. Esquema de validación unificado
-const contactoSchema = z.object({
-  nombre: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
-  email: z.string().email({ message: "Introduce un correo electrónico válido." }),
-  empresa: z.string().optional(),
-  mensaje: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres." }),
-});
+// Esta función es la que "llama" a tu backend (al route.ts de arriba)
+async function enviarFormulario(data: ContactoFormData) {
+  const res = await fetch("/api/contacto", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
 
-type ContactoFormData = z.infer<typeof contactoSchema>;
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error(body.error || "Error al enviar la solicitud.");
+  }
+
+  return res.json();
+}
 
 export default function ContactoPage() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset,
   } = useForm<ContactoFormData>({
     resolver: zodResolver(contactoSchema),
   });
 
-  const onSubmit = async (data: ContactoFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Datos enviados con componentes UI:", data);
-    setIsSubmitted(true);
-    reset();
-  };
+  // useMutation reemplaza tu setTimeout de antes
+  const mutation = useMutation({
+    mutationFn: enviarFormulario,
+    onSuccess: () => reset(),
+  });
+
+  const onSubmit = (data: ContactoFormData) => mutation.mutate(data);
 
   return (
     <main className={styles.container}>
@@ -46,7 +52,7 @@ export default function ContactoPage() {
         </p>
       </div>
 
-      {isSubmitted ? (
+      {mutation.isSuccess ? (
         <div className={styles.successMessage}>
           <h3>¡Solicitud Recibida!</h3>
           <p style={{ marginTop: "0.5rem", color: "var(--color-text-muted)" }}>
@@ -55,7 +61,6 @@ export default function ContactoPage() {
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-          
           <InputField
             label="Nombre Completo *"
             id="nombre"
@@ -81,6 +86,14 @@ export default function ContactoPage() {
             {...register("empresa")}
           />
 
+          <InputField
+            label="Telegram o WhatsApp *"
+            id="telegramOrWhatsapp"
+            placeholder="@usuario o +54 9 11..."
+            error={errors.telegramOrWhatsapp?.message}
+            {...register("telegramOrWhatsapp")}
+          />
+
           <TextAreaField
             label="Detalles de la Solicitud *"
             id="mensaje"
@@ -89,10 +102,15 @@ export default function ContactoPage() {
             {...register("mensaje")}
           />
 
-          <button type="submit" disabled={isSubmitting} className={styles.submitButton}>
-            {isSubmitting ? "Procesando Solicitud..." : "Enviar Solicitud de Demo"}
-          </button>
+          {mutation.isError && (
+            <p style={{ color: "#ff6b6b", fontSize: "0.9rem" }}>
+              {mutation.error instanceof Error ? mutation.error.message : "Ocurrió un error."}
+            </p>
+          )}
 
+          <button type="submit" disabled={mutation.isPending} className={styles.submitButton}>
+            {mutation.isPending ? "Procesando Solicitud..." : "Enviar Solicitud de Demo"}
+          </button>
         </form>
       )}
     </main>

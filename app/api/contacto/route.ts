@@ -1,12 +1,8 @@
 // app/api/contacto/route.ts
-import { contactoSchema } from "@/lib/schemas/contact";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { contactoSchema } from "@/lib/schemas/contact";
 
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-// Esta función se ejecuta cuando alguien hace POST a /api/contacto
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -21,12 +17,15 @@ export async function POST(request: Request) {
 
     const { nombre, email, empresa, telegramOrWhatsapp, mensaje } = parsed.data;
 
-    // Si todavía no cargaste la key, no rompe: simula el envío
+    // Si no hay key, ni siquiera instanciamos Resend
     if (!process.env.RESEND_API_KEY || !process.env.CONTACT_EMAIL_TO) {
       console.warn("[contacto] Faltan variables de entorno. Simulando envío.");
       console.log("[contacto] Lead recibido (mock):", parsed.data);
       return NextResponse.json({ success: true, mocked: true });
     }
+
+    // Recién acá, adentro del handler y con la key confirmada, se crea el cliente
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { error } = await resend.emails.send({
       from: "SHA Web <onboarding@resend.dev>",

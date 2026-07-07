@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Resultados",
+  description: "Auditoría de trazabilidad: corridas de simulación histórica con registro inalterable de órdenes, fills y ciclos operativos.",
+};
 
 export default function ResultadosPage() {
   // Datos simulados fieles de la corrida de 3 días (BTCUSDT)

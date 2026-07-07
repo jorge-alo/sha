@@ -1,5 +1,11 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Planes",
+  description: "Modelos de onboarding progresivo: Plan Validación, Plan Operativo y Plan Profesional, diseñados para escalar con prudencia.",
+};
 
 export default function PlanesPage() {
   const tiers = [

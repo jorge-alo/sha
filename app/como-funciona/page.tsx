@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Cómo Funciona",
+  description: "Conexión controlada, validación obligatoria en modo replay y operación prudente. El flujo completo del método SHA.",
+};
 
 export default function ComoFuncionaPage() {
   return (

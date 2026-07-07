@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Legal y Privacidad",
+  description: "Marco legal, descargo de responsabilidad operativa y políticas de tratamiento de datos de SHA.",
+};
 
 export default function LegalPage() {
   return (

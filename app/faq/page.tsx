@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Preguntas Frecuentes",
+  description: "Respuestas claras sobre custodia de fondos, garantías de rentabilidad y gestión segura de tus API keys.",
+};
 
 export default function FaqPage() {
   return (

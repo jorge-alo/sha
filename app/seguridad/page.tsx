@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Seguridad",
+  description: "Modelo de permisos por API, mínimo privilegio y buenas prácticas OWASP para proteger tu capital y tus credenciales.",
+};
 
 export default function SeguridadPage() {
   return (

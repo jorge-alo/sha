@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Filosofía",
+  description: "Conocé los tres pilares de SHA: disciplina de capital, seguridad práctica y trazabilidad real en la gestión de activos digitales.",
+};
 
 export default function SobreShaPage() {
   return (

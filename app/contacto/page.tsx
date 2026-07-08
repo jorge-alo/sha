@@ -8,6 +8,7 @@ import { InputField } from "@/components/ui/InputField";
 import { TextAreaField } from "@/components/ui/TextAreaField";
 import styles from "./page.module.css";
 import { ContactoFormData, contactoSchema } from "@/lib/schemas/contact";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 // Esta función es la que "llama" a tu backend (al route.ts de arriba)
 async function enviarFormulario(data: ContactoFormData) {
@@ -60,58 +61,60 @@ export default function ContactoPage() {
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-          <InputField
-            label="Nombre Completo *"
-            id="nombre"
-            placeholder="Ej. Jorge Dev"
-            error={errors.nombre?.message}
-            {...register("nombre")}
-          />
+        <FadeIn delay={0.1}>
+          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+            <InputField
+              label="Nombre Completo *"
+              id="nombre"
+              placeholder="Ej. Jorge Dev"
+              error={errors.nombre?.message}
+              {...register("nombre")}
+            />
 
-          <InputField
-            label="Correo Institucional / Personal *"
-            id="email"
-            type="email"
-            placeholder="tu@email.com"
-            error={errors.email?.message}
-            {...register("email")}
-          />
+            <InputField
+              label="Correo Institucional / Personal *"
+              id="email"
+              type="email"
+              placeholder="tu@email.com"
+              error={errors.email?.message}
+              {...register("email")}
+            />
 
-          <InputField
-            label="Organización / Firma (Opcional)"
-            id="empresa"
-            placeholder="Nombre de tu organización"
-            error={errors.empresa?.message}
-            {...register("empresa")}
-          />
+            <InputField
+              label="Organización / Firma (Opcional)"
+              id="empresa"
+              placeholder="Nombre de tu organización"
+              error={errors.empresa?.message}
+              {...register("empresa")}
+            />
 
-          <InputField
-            label="Telegram o WhatsApp *"
-            id="telegramOrWhatsapp"
-            placeholder="@usuario o +54 9 11..."
-            error={errors.telegramOrWhatsapp?.message}
-            {...register("telegramOrWhatsapp")}
-          />
+            <InputField
+              label="Telegram o WhatsApp *"
+              id="telegramOrWhatsapp"
+              placeholder="@usuario o +54 9 11..."
+              error={errors.telegramOrWhatsapp?.message}
+              {...register("telegramOrWhatsapp")}
+            />
 
-          <TextAreaField
-            label="Detalles de la Solicitud *"
-            id="mensaje"
-            placeholder="Contanos tu perfil operativo o qué tipo de integraciones buscas validar..."
-            error={errors.mensaje?.message}
-            {...register("mensaje")}
-          />
+            <TextAreaField
+              label="Detalles de la Solicitud *"
+              id="mensaje"
+              placeholder="Contanos tu perfil operativo o qué tipo de integraciones buscas validar..."
+              error={errors.mensaje?.message}
+              {...register("mensaje")}
+            />
 
-          {mutation.isError && (
-            <p style={{ color: "#ff6b6b", fontSize: "0.9rem" }}>
-              {mutation.error instanceof Error ? mutation.error.message : "Ocurrió un error."}
-            </p>
-          )}
+            {mutation.isError && (
+              <p style={{ color: "#ff6b6b", fontSize: "0.9rem" }}>
+                {mutation.error instanceof Error ? mutation.error.message : "Ocurrió un error."}
+              </p>
+            )}
 
-          <button type="submit" disabled={mutation.isPending} className={styles.submitButton}>
-            {mutation.isPending ? "Procesando Solicitud..." : "Enviar Solicitud de Demo"}
-          </button>
-        </form>
+            <button type="submit" disabled={mutation.isPending} className={styles.submitButton}>
+              {mutation.isPending ? "Procesando Solicitud..." : "Enviar Solicitud de Demo"}
+            </button>
+          </form>
+        </FadeIn>
       )}
     </main>
   );

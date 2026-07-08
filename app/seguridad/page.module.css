@@ -94,3 +94,8 @@
   color: var(--color-accent);
   font-weight: bold;
 }
+
+.cardIcon {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}

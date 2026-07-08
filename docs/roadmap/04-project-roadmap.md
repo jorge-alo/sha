@@ -17,7 +17,7 @@ Este roadmap divide la construcción del proyecto en fases incrementales para as
 ## Fase 3: Interactividad y Formularios (Client Components)
 - [ x] Construir los componentes UI reutilizables de entrada (`FormInput`) en `components/ui/`.
 - [ x] Implementar la página `/contacto` y su subcomponente `ContactForm` utilizando React Hook Form y Zod.
-- [ ] Configurar el cliente de TanStack Query para simular el ciclo de vida del envío asíncrono.
+- [x ] Configurar el cliente de TanStack Query para simular el ciclo de vida del envío asíncrono.
 
 ## Fase 4: Pulido, Animaciones y Despliegue
 - [ ] Incorporar transiciones suaves y sutiles en secciones clave usando Framer Motion.

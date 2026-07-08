@@ -12,6 +12,7 @@ export default function Footer() {
       <div className={styles.legalLinks}>
         <Link href="/faq">FAQ</Link>
         <Link href="/legal">Términos y Privacidad</Link>
+         <Link href="/privacidad">Privacidad</Link>
       </div>
     </footer>
   );

@@ -48,6 +48,7 @@ Pasamos la fase de planificación y actualmente la arquitectura base ya está de
 - `app/contacto/page.tsx`: Formulario de solicitud de acceso con validación asíncrona avanzada.
 -`app/como-funciona/page.tsx`: Explicación del flujo técnico y de ejecución asíncrona de las órdenes matemáticas.
 -`app/legal/page.tsx`: Términos de servicio, descargo de responsabilidad sobre trading (Risk Disclaimer) y políticas de privacidad.
+- `app/privacidad/page.tsx`: Política de privacidad y tratamiento de datos personales, separada de `/legal`.
 -`app/planes/page.tsx`: Presentación de la oferta comercial y niveles de acceso a la plataforma de software (en fase de definición).
 -`app/seguridad/page.tsx`: Detalle de la arquitectura no-custodial y buenas prácticas para el manejo seguro de llaves API.
 -`app/sobre-sha/page.tsx`: Filosofía de SHA, misión del equipo y enfoque técnico sobre la disciplina de capital y control de riesgos.

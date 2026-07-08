@@ -181,7 +181,10 @@
   justify-content: center;
   gap: 1rem;
 }
-
+.pillarIcon {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
 /* ---- TABLET ---- */
 @media (max-width: 768px) {
   .hero {

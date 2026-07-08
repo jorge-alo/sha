@@ -13,13 +13,13 @@ export const metadata = {
   keywords: ["SaaS", "gestión operativa", "automatización", "infraestructura", "desarrollo", "Argentina"],
   authors: [{ name: "SHA Team" }],
   creator: "SHA Team",
-  metadataBase: new URL("https://tu-dominio-final.com"), // Después lo cambiamos por tu URL real al subirlo
+  metadataBase: new URL("https://sha-dusky.vercel.app"), // Después lo cambiamos por tu URL real al subirlo
 
   // Configuración para que se vea Pro al compartir el link en redes o WhatsApp (Open Graph)
   openGraph: {
     title: "SHA | Plataforma de Gestión Operativa",
     description: "Optimizá tus procesos, automatizá integraciones y escalá tu infraestructura de forma eficiente.",
-    url: "https://tu-dominio-final.com",
+    url: "https://sha-dusky.vercel.app",
     siteName: "SHA",
     locale: "es_AR",
     type: "website",

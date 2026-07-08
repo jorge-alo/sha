@@ -7,7 +7,6 @@ export const metadata: Metadata = {
 };
 
 export default function ResultadosPage() {
-  // Datos simulados fieles de la corrida de 3 días (BTCUSDT)
   const orderLog = [
     { id: "SHA-9041", fecha: "2026-06-28 14:22", tipo: "LIMIT BUY", precio: "64,250.00", cantidad: "0.015", estado: "FILL" },
     { id: "SHA-9042", fecha: "2026-06-28 18:05", tipo: "LIMIT SELL", precio: "64,800.00", cantidad: "0.015", estado: "FILL" },
@@ -24,6 +23,13 @@ export default function ResultadosPage() {
           Ventana histórica de simulación de alta fidelidad (Corrida de 3 días) para el par BTCUSDT. 
           Evidencia e inalterabilidad del registro lógico.
         </p>
+      </div>
+
+      {/* DISCLAIMER — riesgo #1 de la Product Vision */}
+      <div className={styles.disclaimer}>
+        <strong>⚠ Aviso importante:</strong> Los datos mostrados corresponden a una simulación 
+        histórica en modo replay y tienen fines exclusivamente demostrativos de trazabilidad. 
+        No representan resultados reales de mercado ni garantía de rentabilidad futura.
       </div>
 
       {/* Bloque de Métricas */}
@@ -51,12 +57,12 @@ export default function ResultadosPage() {
         <table className={styles.cryptoTable}>
           <thead>
             <tr>
-              <th>ID Orden</th>
-              <th>Fecha (UTC)</th>
-              <th>Tipo</th>
-              <th>Precio</th>
-              <th>Cantidad</th>
-              <th>Estado</th>
+              <th scope="col">ID Orden</th>
+              <th scope="col">Fecha (UTC)</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Estado</th>
             </tr>
           </thead>
           <tbody>

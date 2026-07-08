@@ -20,6 +20,6 @@ Este roadmap divide la construcción del proyecto en fases incrementales para as
 - [x ] Configurar el cliente de TanStack Query para simular el ciclo de vida del envío asíncrono.
 
 ## Fase 4: Pulido, Animaciones y Despliegue
-- [ ] Incorporar transiciones suaves y sutiles en secciones clave usando Framer Motion.
+- [x ] Incorporar transiciones suaves y sutiles en secciones clave usando Framer Motion.
 - [ ] Revisión final de accesibilidad, optimización de imágenes (`next/image`) y testing de validaciones en producción.
-- [ ] Despliegue del MVP.
+- [ x] Despliegue del MVP.
